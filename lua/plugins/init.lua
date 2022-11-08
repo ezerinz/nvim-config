@@ -20,7 +20,7 @@ require('packer').startup(function(use)
 	use { 
 				'kyazdani42/nvim-tree.lua',
 				config = function()
-					require('plugins.nvimtree')
+					require('plugins.configs.nvimtree')
 				end
 			}
 
@@ -28,7 +28,7 @@ require('packer').startup(function(use)
 	use {
 		    'nvim-lualine/lualine.nvim',
 				config = function()
-					require('plugins.lualine')
+					require('plugins.configs.lualine')
 				end
 			}
 
@@ -37,7 +37,7 @@ require('packer').startup(function(use)
 				'akinsho/bufferline.nvim',
 				tag = 'v3.*',
 				config = function()
-					require('plugins.bufferline')
+					require('plugins.configs.bufferline')
 				end
 			}
 	
@@ -45,7 +45,7 @@ require('packer').startup(function(use)
 	use {
 		    'ojroques/nvim-bufdel',
 				config = function()
-					require('plugins.delbuf')
+					require('plugins.configs.delbuf')
 				end
 			}
 	
@@ -53,7 +53,7 @@ require('packer').startup(function(use)
 	use {
 				'lukas-reineke/indent-blankline.nvim',
 				config = function()
-					require('plugins.indent-blankline')
+					require('plugins.configs.indent-blankline')
 				end
 			}
 
@@ -65,14 +65,14 @@ require('packer').startup(function(use)
 					ts_update()
 				end,
 				config = function()
-					require('plugins.nvimtreesitter')
+					require('plugins.configs.nvimtreesitter')
 				end
 			}
 
 	use { 
 				"ellisonleao/gruvbox.nvim",
 				config = function()
-					require('plugins.gruvbox')
+					require('plugins.configs.gruvbox')
 				end
 			}
 	
@@ -97,29 +97,43 @@ require('packer').startup(function(use)
 					require('mason-lspconfig').setup()
 				end
 			}
-
-	use {
+	
+	use { 
 				'neovim/nvim-lspconfig',
 				config = function()
-					require('plugins.lspconfig')
+					require('plugins.configs.lspconfig')
 				end
 			}
-	
+
 	use {
-				'hrsh7th/cmp-nvim-lsp',
-				'hrsh7th/cmp-buffer',
-				'hrsh7th/cmp-path',
-				'hrsh7th/nvim-cmp',
-				'L3MON4D3/LuaSnip',
-				'saadparwaiz1/cmp_luasnip',
 				'rafamadriz/friendly-snippets'
 			}
+
+	use {
+				'hrsh7th/nvim-cmp',
+				config = function()
+					require('plugins.configs.cmp')
+				end
+			}
+
+	use {
+				'L3MON4D3/LuaSnip',
+				config = function()
+					require('luasnip.loaders.from_vscode').lazy_load()
+				end
+			}
+
+	use { 'saadparwaiz1/cmp_luasnip' }
+	use { 'hrsh7th/cmp-nvim-lsp' }
+	use { 'hrsh7th/cmp-buffer' }
+	use { 'hrsh7th/cmp-path' }
+
 	-- ============================== Mason and LSP ================================
 	
 	use {
 				'NvChad/nvterm',
 				config = function()
-					require('plugins.nvterm')
+					require('plugins.configs.nvterm')
 				end,
 			}
 
@@ -130,9 +144,5 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
--- cmp, snippet config
-require('plugins.cmp')
-
 
 

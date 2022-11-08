@@ -1,12 +1,5 @@
---vim.opt.termguicolors = true
--- option
-require('konfig.sett')
-
--- keybind
-require('konfig.key')
+-- option, keybind
+require('core')
 
 -- plugin
-require('plugin')
-
-
-
+require('plugins')

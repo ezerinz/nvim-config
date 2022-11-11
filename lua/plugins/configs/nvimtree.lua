@@ -3,7 +3,7 @@ require("nvim-tree").setup({
 	sort_by = "case_sensitive",
   view = {
 		side = 'left',
-		width = 25,
+		width = '30%',
 		
     adaptive_size = false,
     mappings = {

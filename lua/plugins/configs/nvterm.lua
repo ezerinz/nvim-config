@@ -28,9 +28,8 @@ local mappings = {
   { toggle_modes, '<leader>tv', function () require("nvterm.terminal").toggle('vertical') end },
   { toggle_modes, '<leader>tf', function () require("nvterm.terminal").toggle('float') end },
 	{ toggle_modes, '<leader>tc', function () require("nvterm.terminal").send('clear') end },
-	{ toggle_modes, '<leader>tq', function () require("nvterm.terminal").send('exit') end },
 }
 local opts = { noremap = true, silent = true }
 for _, mapping in ipairs(mappings) do
-  vim.keymap.set(mapping[1], mapping[2], mapping[3], mapping[4], mapping[5], opts)
+  vim.keymap.set(mapping[1], mapping[2], mapping[3], opts)
 end

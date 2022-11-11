@@ -11,7 +11,7 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   install_plugins = true
 end
 
-require('packer').startup(function(use)
+require('packer').startup({function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
@@ -143,6 +143,12 @@ require('packer').startup(function(use)
   if install_plugins then
     require('packer').sync()
   end
-end)
+end,
+  config = {
+    display = {
+      open_fn = require('packer.util').float,
+    }
+  }
+})
 
 

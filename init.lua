@@ -1,5 +1,5 @@
 -- option, keybind
 require('core')
 
--- plugin
+-- plugin load
 require('plugins')

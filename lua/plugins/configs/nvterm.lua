@@ -10,7 +10,7 @@ function ft_detect(ft)
 	elseif ft == 'javascript' then
 		cmd = 'node '
 	elseif ft == 'html' then
-		cmd = 'live-server '
+		cmd = 'firefox '
 	elseif ft == 'java' then
 		cmd = 'java '
 	elseif ft == 'lua' then

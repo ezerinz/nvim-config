@@ -1,5 +1,5 @@
 # NvimConfig
-Plugin yang dipakai:
+Plugins used:
 - Packer
 - Nvim-Web-Devicons
 - Nvim-Tree

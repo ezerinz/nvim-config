@@ -5,10 +5,10 @@ require("nvterm").setup({
     type_opts = {
       float = {
         relative = 'editor',
-        row = 0.1,
+        row = 0.05,
         col = 1.0,
-        width = 0.4,
-        height = 0.7,
+        width = 0.2,
+        height = 0.8,
         border = "single",
       },
       horizontal = { location = "rightbelow", split_ratio = .3, },

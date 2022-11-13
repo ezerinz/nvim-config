@@ -1,5 +1,5 @@
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local install_plugins = true
+local install_plugins = false
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   print('Installing packer...')
@@ -127,7 +127,8 @@ require('packer').startup({function(use)
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-buffer' }
 	use { 'hrsh7th/cmp-path' }
-
+	
+	use 'mfussenegger/nvim-jdtls'
 	-- ============================== Mason and LSP ================================
 	
 	use {
@@ -139,6 +140,12 @@ require('packer').startup({function(use)
 
 			use {
 						'nathom/filetype.nvim'
+					}
+			use { 
+						'goolord/alpha-nvim',
+						config = function()
+							require('plugins.configs.alpha')
+						end,
 					}
   if install_plugins then
     require('packer').sync()

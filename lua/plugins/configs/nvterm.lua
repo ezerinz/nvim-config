@@ -12,7 +12,7 @@ require("nvterm").setup({
         border = "single",
       },
       horizontal = { location = "rightbelow", split_ratio = .3, },
-      vertical = { location = "rightbelow", split_ratio = .5 },
+      vertical = { location = "rightbelow", split_ratio = .3 },
     }
   },
   behavior = {
@@ -26,9 +26,11 @@ require("nvterm").setup({
 })
 
 local terminal = require("nvterm.terminal")
-
+--require("nvterm.terminal").send("cd " .. vim.fn.expand('%:h'))
 function ft_detect(ft)
-	path = vim.fn.expand('%')
+	path = vim.fn.expand('%:h')
+	file = vim.fn.expand('%:t')
+	cwd = vim.fn.getcwd()
 	cmd = 'echo "Filetype not recognized "'
 	if ft == 'python' then
 		cmd = 'python3 -u '
@@ -41,8 +43,13 @@ function ft_detect(ft)
 	elseif ft == 'lua' then
 		cmd = 'lua '
 	end
+	
+	result = 'cd ' .. path .. ' && ' .. cmd .. file
+	if path ==  cwd then
+		result = cmd .. file
+	end
 
-	return cmd .. path
+	return result
 end
 
 

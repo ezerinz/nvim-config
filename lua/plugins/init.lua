@@ -20,7 +20,7 @@ require('packer').startup({function(use)
 	use { 
 		'nvim-tree/nvim-tree.lua',
 		config = function()
-			require('plugins.configs.nvimtree')
+			require('plugins.configs.nvim-tree')
 		end
 	}
 
@@ -45,7 +45,7 @@ require('packer').startup({function(use)
 	use {
 		'ojroques/nvim-bufdel',
 		config = function()
-			require('plugins.configs.delbuf')
+			require('plugins.configs.nvim-bufdel')
 		end
 	}
 	
@@ -65,7 +65,7 @@ require('packer').startup({function(use)
 			ts_update()
 		end,
 		config = function()
-			require('plugins.configs.nvimtreesitter')
+			require('plugins.configs.nvim-treesitter')
 		end
 	}
 	
@@ -73,18 +73,9 @@ require('packer').startup({function(use)
 	use {
 		'navarasu/onedark.nvim',
 		config = function()
-			require('plugins.configs.onedark-colorscheme')
+			require('plugins.configs.onedark')
 		end
 	}
-
---[[
-	use {
-		'folke/tokyonight.nvim',
-		config = function()
-			require('plugins.configs.tokyonight-colorscheme')
-		end
-	}
-]]
 
 -- =============================== Mason, LSP, and autocomplete ===============================
 	use { 
@@ -104,7 +95,7 @@ require('packer').startup({function(use)
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
-			require('plugins.configs.lspconfig')
+			require('plugins.configs.nvim-lspconfig')
 		end
 	}
 
@@ -143,7 +134,7 @@ require('packer').startup({function(use)
 	use {
 		'goolord/alpha-nvim',
 		config = function()
-			require('plugins.configs.alpha')
+			require('plugins.configs.alpha-nvim')
 		end
 	}
 

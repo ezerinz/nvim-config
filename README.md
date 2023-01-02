@@ -1,14 +1,23 @@
 # NvimConfig
 Plugins used:
-- Packer
-- Nvim-Web-Devicons
-- Nvim-Tree
-- Lua-Line
-- Bufferline
-- Nvim-Bufdel
-- Indent-Blankline
-- Nvim-Treesitter
-- Gruvbox (Colorscheme)
-- Mason, Mason-Lspconfig
-- Nvim-Lspconfig, Nvim-cmp
-- NvTerm
+- packer
+- nvim-Web-Devicons
+- nvim-tree
+- lualine
+- bufferline
+- nvim-bufdel
+- indent-blankline
+- nvim-treesitter
+- onedark
+- mason, mason-lspconfig
+- nvim-lspconfig
+- friendly-snippets, nvim-cmp, cmp-luasnip,cmp-nvim-lsp, cmp-buffer, cmp-path, LuaSnip
+- nvim-jdtls
+- nvterm
+- alpha
+- scope
+- carbon-now
+
+### Keybinds
+'<Space>' Leader Key
+

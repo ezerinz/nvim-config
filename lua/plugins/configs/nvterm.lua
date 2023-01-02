@@ -11,7 +11,11 @@ require("nvterm").setup({
         height = 0.8,
         border = "single",
       },
-      horizontal = { location = "rightbelow", split_ratio = .3, },
+      horizontal = 
+			{ 
+				location = "rightbelow", 
+				split_ratio = .3,
+			},
       vertical = { location = "rightbelow", split_ratio = .3 },
     }
   },
@@ -32,24 +36,20 @@ function ft_detect(ft)
 	file = vim.fn.expand('%:t')
 	cwd = vim.fn.getcwd()
 	cmd = 'echo "Filetype not recognized "'
+	cd = 'cd ' .. path .. ' && '
 	if ft == 'python' then
-		cmd = 'python3 -u '
+		cmd = cd .. 'python3 -u ' .. file
 	elseif ft == 'javascript' then
-		cmd = 'node '
+		cmd = cd .. 'node ' .. file
 	elseif ft == 'html' then
-		cmd = 'firefox '
+		cmd = cd .. 'firefox ' .. file
 	elseif ft == 'java' then
-		cmd = 'java '
+		cmd = 'cd ' .. require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}) .. ' && gradle -q --console plain run'
 	elseif ft == 'lua' then
-		cmd = 'lua '
-	end
-	
-	result = 'cd ' .. path .. ' && ' .. cmd .. file
-	if path ==  cwd then
-		result = cmd .. file
+		cmd = cd .. 'lua ' .. file
 	end
 
-	return result
+	return cmd
 end
 
 

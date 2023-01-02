@@ -11,154 +11,165 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   install_plugins = true
 end
 
-require('packer').startup({function(use)
-  -- Package manager
+require('packer').startup({function(use)  
+-- Package manager
   use 'wbthomason/packer.nvim'
 
-  -- Theme inspired by Atom
-  use 'kyazdani42/nvim-web-devicons'
+	use 'nvim-tree/nvim-web-devicons'
+
 	use { 
-				'kyazdani42/nvim-tree.lua',
-				config = function()
-					require('plugins.configs.nvimtree')
-				end
-			}
+		'nvim-tree/nvim-tree.lua',
+		config = function()
+			require('plugins.configs.nvimtree')
+		end
+	}
 
   -- lua line
 	use {
-		    'nvim-lualine/lualine.nvim',
-				config = function()
-					require('plugins.configs.lualine')
-				end
-			}
+		'nvim-lualine/lualine.nvim',
+		config = function()
+			require('plugins.configs.lualine')
+		end
+	}
 
 	-- bufferline
 	use {
-				'akinsho/bufferline.nvim',
-				tag = 'v3.*',
-				config = function()
-					require('plugins.configs.bufferline')
-				end
-			}
+		'akinsho/bufferline.nvim',
+		tag = 'v3.*',
+		config = function()
+			require('plugins.configs.bufferline')
+		end
+	}
 	
-	-- delet buffer		
+	-- delete buffer		
 	use {
-		    'ojroques/nvim-bufdel',
-				config = function()
-					require('plugins.configs.delbuf')
-				end
-			}
+		'ojroques/nvim-bufdel',
+		config = function()
+			require('plugins.configs.delbuf')
+		end
+	}
 	
 	-- indent blankline
 	use {
-				'lukas-reineke/indent-blankline.nvim',
-				config = function()
-					require('plugins.configs.indent-blankline')
-				end
-			}
+		'lukas-reineke/indent-blankline.nvim',
+		config = function()
+			require('plugins.configs.indent-blankline')
+		end
+	}
 
 	-- nvim tree sitter
 	use {
-				'nvim-treesitter/nvim-treesitter',
-				run = function()
-					local ts_update = require('nvim-treesitter.install').update({with_sync = true})
-					ts_update()
-				end,
-				config = function()
-					require('plugins.configs.nvimtreesitter')
-				end
-			}
-
-	use { 
-				"ellisonleao/gruvbox.nvim",
-				config = function()
-					require('plugins.configs.gruvbox')
-				end
-			}
+		'nvim-treesitter/nvim-treesitter',
+		run = function()
+			local ts_update = require('nvim-treesitter.install').update({with_sync = true})
+			ts_update()
+		end,
+		config = function()
+			require('plugins.configs.nvimtreesitter')
+		end
+	}
 	
-	-- onedark colorscheme
---	use {
---				'navarasu/onedark.nvim',
---				config = function()
---					require('plugins.onedark')
---				end
---			}
-  -- =============================== Mason, LSP, and autocomplete ===============================
+	-- color scheme
+	use {
+		'navarasu/onedark.nvim',
+		config = function()
+			require('plugins.configs.onedark-colorscheme')
+		end
+	}
+
+--[[
+	use {
+		'folke/tokyonight.nvim',
+		config = function()
+			require('plugins.configs.tokyonight-colorscheme')
+		end
+	}
+]]
+
+-- =============================== Mason, LSP, and autocomplete ===============================
 	use { 
-				'williamboman/mason.nvim',
-				config = function()
-					require('mason').setup()
-				end
-			}
+		'williamboman/mason.nvim',
+		config = function()
+			require('mason').setup()
+		end
+	}
 
 	use {
-				'williamboman/mason-lspconfig.nvim',
-				config = function()
-					require('mason-lspconfig').setup()
-				end
-			}
+		'williamboman/mason-lspconfig.nvim',
+		config = function()
+			require('mason-lspconfig').setup()
+		end
+	}
 	
-	use { 
-				'neovim/nvim-lspconfig',
-				config = function()
-					require('plugins.configs.lspconfig')
-				end
-			}
+	use {
+		'neovim/nvim-lspconfig',
+		config = function()
+			require('plugins.configs.lspconfig')
+		end
+	}
+
+	use 'rafamadriz/friendly-snippets'
 
 	use {
-				'rafamadriz/friendly-snippets'
-			}
+		'hrsh7th/nvim-cmp',
+		config = function()
+			require('plugins.configs.cmp')
+		end
+	}
 
 	use {
-				'hrsh7th/nvim-cmp',
-				config = function()
-					require('plugins.configs.cmp')
-				end
-			}
+		'L3MON4D3/LuaSnip',
+		config = function()
+			require('luasnip.loaders.from_vscode').lazy_load()
+		end
+	}
 
-	use {
-				'L3MON4D3/LuaSnip',
-				config = function()
-					require('luasnip.loaders.from_vscode').lazy_load()
-				end
-			}
-
-	use { 'saadparwaiz1/cmp_luasnip' }
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-buffer' }
-	use { 'hrsh7th/cmp-path' }
-	
+	use 'saadparwaiz1/cmp_luasnip'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
 	use 'mfussenegger/nvim-jdtls'
 	-- ============================== Mason and LSP ================================
 	
 	use {
-				'NvChad/nvterm',
-				config = function()
-					require('plugins.configs.nvterm')
-				end,
-			}
+		'NvChad/nvterm',
+		config = function()
+			require('plugins.configs.nvterm')
+		end
+	}
 
-			use {
-						'nathom/filetype.nvim'
-					}
-			use { 
-						'goolord/alpha-nvim',
-						config = function()
-							require('plugins.configs.alpha')
-						end,
-					}
-  if install_plugins then
+	use 'nathom/filetype.nvim'
+	
+	use {
+		'goolord/alpha-nvim',
+		config = function()
+			require('plugins.configs.alpha')
+		end
+	}
+
+  use {
+		'tiagovla/scope.nvim',
+		config = function()
+			require('plugins.configs.scope')
+		end
+	}
+	
+	use {
+		'ellisonleao/carbon-now.nvim', 
+		config = function() 
+			require('plugins.configs.carbon-now')
+		end
+	}
+
+	if install_plugins then
     require('packer').sync()
   end
 end,
   config = {
     display = {
       open_fn = function()
-	  return  require('packer.util').float({border='single'})
-	end,
+				return  require('packer.util').float({border='single'})
+			end,
     }
   }
-})
-
-
- 
+}) 

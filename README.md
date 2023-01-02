@@ -19,10 +19,10 @@ Plugins used:
 - carbon-now
 
 ### Keybinds
-`Space` Leader key
-`<leader>q` close/quit
-`<leader>w` write/save
-`<leader>c` copy to clipboard
+`Space` Leader key.
+`<leader>q` close/quit.
+`<leader>w` write/save.
+`<leader>c` copy to clipboard.
 `<leader>v` paste to clipboard
 `<leader>nt` nvim-tree toggle (open/close)
 `<leader>nm` change focus to nvim-tree

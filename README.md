@@ -19,5 +19,4 @@ Plugins used:
 - carbon-now
 
 ### Keybinds
-'\<Space\>' Leader Key
-
+`\<Space\>` Leader Key

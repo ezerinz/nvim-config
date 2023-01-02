@@ -19,4 +19,19 @@ Plugins used:
 - carbon-now
 
 ### Keybinds
-`\<Space\>` Leader Key
+`Space` Leader key
+`<leader>q` close/quit
+`<leader>w` write/save
+`<leader>c` copy to clipboard
+`<leader>v` paste to clipboard
+`<leader>nt` nvim-tree toggle (open/close)
+`<leader>nm` change focus to nvim-tree
+`<leader>bd` close current bufferline
+`<leader>b,` bufferline cycle previous
+`<leader>b.` bufferline cycle next
+`<leader>tr` run current file in terminal 
+`<leader>th` open terminal horizontal
+`<leader>tv` open terminal vertical
+`<leader>tf` open terminal float
+`<leader>tc` clear terminal (not close)
+`<leader>ss` code to carbon now

@@ -3,8 +3,8 @@ require("nvim-tree").setup({
 	sort_by = "case_sensitive",
   view = {
 		side = 'left',
-		width = '20%',
-		
+		width = '22%',
+		preserve_window_proportions = true,
     adaptive_size = false,
     mappings = {
       list = {

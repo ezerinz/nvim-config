@@ -15,7 +15,7 @@ dashboard.section.header.val = {
 
 dashboard.section.buttons.val = {
  		dashboard.button( "SPC n t", "  File Explorer", ":ene <BAR> NvimTreeToggle<CR>"),
-		dashboard.button( "SPC p u", "ﮮ  Plugin Update", ":PackerUpdate<CR>"),
+		dashboard.button( "SPC p u", "ﮮ  Plugin Synchronization", ":PackerSync<CR>"),
     dashboard.button( "q", "  Quit NVIM" , ":qa<CR>"),
 }
 local handle = io.popen('fortune')

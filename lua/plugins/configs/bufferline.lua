@@ -6,7 +6,11 @@ require('bufferline').setup
             max_prefix_length = 15,
 						truncate_names = true,
 						tab_size = 18,
-            diagnostics = "nvim-lsp",
+            diagnostics = "nvim_lsp",
+						--[[diagnostics_indicator = function(count, level, diagnostics_dict, context)
+							local icon = level:match("error") and " " or " "
+							return " " .. icon .. count
+						end,]]
             diagnostics_update_in_insert = true,
             offsets = {
                 {
@@ -36,12 +40,10 @@ require('bufferline').setup
         },
 				highlights = {
 				offset_separator = {
---				fg = '#3e4452', 
-
-				bg = '#282828',
-					},
+					bg = '#1a212e',
 				},
-    }
+		},
+  }
 
 		
 --require'bufferline'.setup{

@@ -104,7 +104,7 @@ require('packer').startup({function(use)
 	use {
 		'hrsh7th/nvim-cmp',
 		config = function()
-			require('plugins.configs.cmp')
+			require('plugins.configs.nvim-cmp')
 		end
 	}
 
@@ -138,7 +138,7 @@ require('packer').startup({function(use)
 		end
 	}
 
-  use {
+	use {
 		'tiagovla/scope.nvim',
 		config = function()
 			require('plugins.configs.scope')

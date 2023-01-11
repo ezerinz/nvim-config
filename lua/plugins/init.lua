@@ -14,7 +14,7 @@ end
 require('packer').startup({function(use)  
 -- Package manager
   use 'wbthomason/packer.nvim'
-
+	use 'nvim-lua/plenary.nvim'
 	use 'nvim-tree/nvim-web-devicons'
 
 	use { 
@@ -120,6 +120,13 @@ require('packer').startup({function(use)
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
 	use 'mfussenegger/nvim-jdtls'
+	
+	use {
+		'akinsho/flutter-tools.nvim',
+		config = function()
+			require('plugins.configs.flutter-tools')
+		end
+	}
 	-- ============================== Mason and LSP ================================
 	
 	use {
@@ -135,13 +142,6 @@ require('packer').startup({function(use)
 		'goolord/alpha-nvim',
 		config = function()
 			require('plugins.configs.alpha-nvim')
-		end
-	}
-
-	use {
-		'tiagovla/scope.nvim',
-		config = function()
-			require('plugins.configs.scope')
 		end
 	}
 	

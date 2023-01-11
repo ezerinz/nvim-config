@@ -34,22 +34,34 @@ local terminal = require("nvterm.terminal")
 function ft_detect(ft)
 	path = vim.fn.expand('%:h')
 	file = vim.fn.expand('%:t')
-	cwd = vim.fn.getcwd()
 	cmd = 'echo "Filetype not recognized "'
-	cd = 'cd ' .. path .. ' && '
+
 	if ft == 'python' then
-		cmd = cd .. 'python3 -u ' .. file
+		cmd = 'python3 -u '
 	elseif ft == 'javascript' then
-		cmd = cd .. 'node ' .. file
+		cmd = 'node '
 	elseif ft == 'html' then
-		cmd = cd .. 'firefox ' .. file
+		cmd = 'firefox '
 	elseif ft == 'java' then
-		cmd = 'cd ' .. require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}) .. ' && gradle -q --console plain run'
+		root_project = require('jdtls.setup').find_root({'mvnw', 'gradlew'})
+		if root_project == nil then
+			filename_only = {}
+			filename_only[1] = file:match("(.+)%..+$")
+			cmdjava = 'cd ' .. path .. ' && javac ' .. file .. ' && java ' .. filename_only[1]
+		else
+			cmdjava = 'cd ' .. root_project .. ' && gradle --console plain run'
+		end
 	elseif ft == 'lua' then
-		cmd = cd .. 'lua ' .. file
+		cmd = 'lua '
+	end
+	
+	if ft ~= 'java' then
+		result = 'cd ' .. path .. ' && ' .. cmd .. file
+	else
+		result = cmdjava
 	end
 
-	return cmd
+	return result
 end
 
 
